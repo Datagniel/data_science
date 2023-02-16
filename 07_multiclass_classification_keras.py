@@ -8,21 +8,21 @@ Created on Thu Oct  6 13:57:38 2022
 Source: https://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep-learning-library/
 """
 
-import pandas
-from keras.models import Sequential
-from keras.layers import Dense
-# from keras.wrappers.scikit_learn import KerasClassifier (original)
-from scikeras.wrappers import KerasClassifier
-from keras.utils import np_utils
 from keras.backend import gather
+from keras.layers import Dense
+from keras.models import Sequential
+# from keras.wrappers.scikit_learn import KerasClassifier (original)
+from keras.utils import np_utils
+import matplotlib.pyplot as plt
+import pandas as pd
+from scikeras.wrappers import KerasClassifier
 # from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import LabelEncoder
-import matplotlib.pyplot as plt
 
 #%% load dataset
 
-dataframe = pandas.read_csv("https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv", header=None)
+dataframe = pd.read_csv("https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv", header=None)
 dataset = dataframe.values
 X = dataset[:,0:4].astype(float)
 y = dataset[:,4]
