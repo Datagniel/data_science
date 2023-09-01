@@ -12,7 +12,7 @@ from keras.backend import gather
 from keras.layers import Dense
 from keras.models import Sequential
 # from keras.wrappers.scikit_learn import KerasClassifier (original)
-from keras.utils import np_utils
+from keras.utils import to_categorical
 import matplotlib.pyplot as plt
 import pandas as pd
 from scikeras.wrappers import KerasClassifier
@@ -41,7 +41,7 @@ for group in zip(*[iter(encoded_y)] * 10):
 
 #%% convert integers to dummy variables (i.e. one hot encoded)
 
-dummy_y = np_utils.to_categorical(encoded_y)
+dummy_y = to_categorical(encoded_y)
 print(dummy_y[:5,:])
 print(dummy_y[50:55,:])
 print(dummy_y[100:105,:])
